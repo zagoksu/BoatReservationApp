@@ -12,9 +12,8 @@ public class Rental {
     private double rentDuration;
     private double totalPrice;
     private boolean paymentIsDone;
-    private boolean isReturned;
 
-    public Rental(int rentalId, Date rentDate, Boat boat, Customer customer, String startTime, String endTime, double rentDuration, boolean paymentIsDone, boolean isReturned) {
+    public Rental(int rentalId, Date rentDate, Boat boat, Customer customer, String startTime, String endTime, double rentDuration, boolean paymentIsDone) {
 
         this.rentalId = rentalId;
         this.rentDate = rentDate;
@@ -25,7 +24,6 @@ public class Rental {
         this.rentDuration = rentDuration;
         this.totalPrice = calculateTotalPrice(boat.getMinimumPrice());
         this.paymentIsDone = paymentIsDone;
-        this.isReturned = isReturned;
     }
 
     public Rental() {
@@ -105,13 +103,6 @@ public class Rental {
         this.paymentIsDone = paymentIsDone;
     }
 
-    public boolean isReturned() {
-        return isReturned;
-    }
-
-    public void setReturned(boolean returned) {
-        isReturned = returned;
-    }
     public double calculateTotalPrice(double minimumPrice){
         return totalPrice = rentDuration * minimumPrice;
     }
@@ -128,7 +119,6 @@ public class Rental {
                 ", rentDuration=" + rentDuration +
                 ", totalPrice=" + totalPrice +
                 ", paymentIsDone=" + paymentIsDone +
-                ", isReturned=" + isReturned +
                 '}';
     }
 }

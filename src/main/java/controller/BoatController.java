@@ -46,8 +46,10 @@ public class BoatController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println("BOAT ID \t BOAT TYPE \t SEATS \t\t PRICE PER HOUR \t CHARGING TIME");
         for (Boat boatIn : model.boats) {
-            System.out.println(boatIn);
+//            System.out.println(boatIn);
+            System.out.println(boatIn.getBoatId() + "\t\t\t TYPE:" + boatIn.getBoatType() + "\t\t SEATS: " + boatIn.getSeats() + "\t PRICE:" + boatIn.getMinimumPrice() + "\t\t CHARGING TIME:" + boatIn.getChargingTime());
         }
     }
 

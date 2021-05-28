@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 public class MainMenuView {
     public static int get() {
-        System.out.println("1. Boat List");
-        System.out.println("2. Customer List");
-        System.out.println("3. Reservation List");
+        System.out.println("1. Boat Menu");
+        System.out.println("2. Customer Menu");
+        System.out.println("3. Reservation Menu");
         System.out.println("4. User Menu");
         System.out.println("5. End Program");
 
