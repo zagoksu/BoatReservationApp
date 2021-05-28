@@ -32,7 +32,7 @@ public class BoatController {
                     updateBoat();
                     break;
                 case 4:
-                    deleteBoat(scanner, mapper);
+                    deleteBoat();
                     break;
                 case 5:
                     break outer;
@@ -43,7 +43,6 @@ public class BoatController {
     }
 
     public static void listBoats(){
-        ObjectMapper mapper = new ObjectMapper();
         try {
             model = mapper.readValue(new File("C:\\Users\\zgoksu\\IdeaProjects\\BoatReservationApp\\src\\main\\java\\model\\model.json"), Model.class);
         } catch (IOException e) {
@@ -55,7 +54,6 @@ public class BoatController {
     }
 
     public static Boat addBoat(){
-        ObjectMapper mapper = new ObjectMapper();
         Scanner scanner = new Scanner(System.in);
         String boatType = "";
         int chargingTime = 0;
@@ -156,9 +154,14 @@ public class BoatController {
                 break;
             }
         }
+        try {
+            mapper.writeValue(new File("C:\\Users\\zgoksu\\IdeaProjects\\BoatReservationApp\\src\\main\\java\\model\\model.json"), model);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public static void deleteBoat(Scanner scanner, ObjectMapper mapper){
+    public static void deleteBoat(){
 
         System.out.println("Please enter the Id of the customer you want to delete:");
         int boatId = scanner.nextInt();
