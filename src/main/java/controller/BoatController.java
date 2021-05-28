@@ -2,8 +2,6 @@ package controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import model.Boat;
-import model.BoatList;
-import model.Customer;
 import model.Model;
 import view.BoatMenuView;
 
@@ -44,7 +42,7 @@ public class BoatController {
 
     public static void listBoats(){
         try {
-            model = mapper.readValue(new File("C:\\Users\\zgoksu\\IdeaProjects\\BoatReservationApp\\src\\main\\java\\model\\model.json"), Model.class);
+            model = mapper.readValue(new File("src\\main\\java\\model\\model.json"), Model.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -126,14 +124,14 @@ public class BoatController {
 
 
         try {
-            model = mapper.readValue(new File("C:\\Users\\zgoksu\\IdeaProjects\\BoatReservationApp\\src\\main\\java\\model\\model.json"), Model.class);
+            model = mapper.readValue(new File("src/main/java/model/model.json"), Model.class);
             model.boats.add(newBoat);
         } catch (IOException e) {
             e.printStackTrace();
         }
         try {
             // Java object to JSON file
-            mapper.writeValue(new File("C:\\Users\\zgoksu\\IdeaProjects\\BoatReservationApp\\src\\main\\java\\model\\model.json"), model);
+            mapper.writeValue(new File("src/main/java/model/model.json"), model);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -155,7 +153,7 @@ public class BoatController {
             }
         }
         try {
-            mapper.writeValue(new File("C:\\Users\\zgoksu\\IdeaProjects\\BoatReservationApp\\src\\main\\java\\model\\model.json"), model);
+            mapper.writeValue(new File("src/main/java/model/model.json"), model);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -176,7 +174,7 @@ public class BoatController {
         }
         // Java object to JSON file
         try {
-            mapper.writeValue(new File("C:\\Users\\zgoksu\\IdeaProjects\\BoatReservationApp\\src\\main\\java\\model\\model.json"), model);
+            mapper.writeValue(new File("src/main/java/model/model.json"), model);
         } catch (IOException e) {
             e.printStackTrace();
         }

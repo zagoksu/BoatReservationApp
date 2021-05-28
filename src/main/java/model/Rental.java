@@ -14,7 +14,7 @@ public class Rental {
     private boolean paymentIsDone;
     private boolean isReturned;
 
-    public Rental(int rentalId, Date rentDate, Boat boat, Customer customer, String startTime, String endTime, int rentDuration, double totalPrice, boolean paymentIsDone, boolean isReturned) {
+    public Rental(int rentalId, Date rentDate, Boat boat, Customer customer, String startTime, String endTime,  boolean paymentIsDone, boolean isReturned) {
 
         this.rentalId = rentalId;
         this.rentDate = rentDate;
@@ -22,15 +22,30 @@ public class Rental {
         this.customer = customer;
         this.startTime = startTime;
         this.endTime = endTime;
-        this.rentDuration = rentDuration;
-        this.totalPrice = totalPrice;
+        this.rentDuration = 0;
+        this.totalPrice = calculateTotalPrice(boat.getMinimumPrice());
+        this.paymentIsDone = paymentIsDone;
+        this.isReturned = isReturned;
+    }
+    public Rental(int rentalId, Date rentDate, Boat boat, Customer customer, String startTime, String endTime,  double totalPrice, boolean paymentIsDone, boolean isReturned) {
+
+        this.rentalId = rentalId;
+        this.rentDate = rentDate;
+        this.boat = boat;
+        this.customer = customer;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.rentDuration = 0;
+        this.totalPrice = calculateTotalPrice(boat.getMinimumPrice());
         this.paymentIsDone = paymentIsDone;
         this.isReturned = isReturned;
     }
 
+
     public Rental() {
 
     }
+
 
     public int getRentalId() {
         return rentalId;
@@ -110,6 +125,9 @@ public class Rental {
 
     public void setReturned(boolean returned) {
         isReturned = returned;
+    }
+    public double calculateTotalPrice(double minimumPrice){
+        return totalPrice = rentDuration * minimumPrice;
     }
 
     @Override

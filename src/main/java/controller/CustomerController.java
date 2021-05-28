@@ -1,20 +1,15 @@
 package controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import model.BoatList;
 import model.Customer;
-import model.CustomerList;
 import model.Model;
-import view.BoatMenuView;
 import view.CustomerMenuView;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 import java.util.Scanner;
 
 public class CustomerController {
-    CustomerList customers;
     static Model model = new Model();
     static ObjectMapper mapper = new ObjectMapper();
     static Scanner scanner = new Scanner(System.in);

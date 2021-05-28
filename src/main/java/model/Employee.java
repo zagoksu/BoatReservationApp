@@ -3,19 +3,22 @@ package model;
 import java.util.Random;
 
 public class Employee {
-    private Random random = new Random();
     private int employeeId;
     private String userName;
     private String password;
 
-    public Employee( String userName, String password) {
-        this.employeeId = random.nextInt(50);
+    public Employee( int employeeId, String userName, String password) {
+        this.employeeId = employeeId;
         this.userName = userName;
         this.password = password;
     }
 
     public Employee(){
 
+    }
+
+    public void setEmployeeId(int employeeId) {
+        this.employeeId = employeeId;
     }
 
     public int getEmployeeId() {

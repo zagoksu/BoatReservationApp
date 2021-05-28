@@ -12,12 +12,6 @@ public class Model {
     public List<Customer> customers = new ArrayList<>();
     public List<Rental> rentals = new ArrayList<>();
 
-//    BoatList boats = new BoatList();
-//    CustomerList customers = new CustomerList();
-//    RentalList rentals = new RentalList();
-//    EmployeeList employees = new EmployeeList();
-
-
     Scanner scanner = new Scanner(System.in);
     ObjectMapper mapper = new ObjectMapper();
 
@@ -37,6 +31,17 @@ public class Model {
         for (Customer customerIn : customers ){
             if (customerIn.getCustomerId() > id){
                 id = customerIn.getCustomerId();
+            }
+        }
+        id++;
+        return id;
+    }
+
+    public int nextEmployeeId(){
+        int id = 0;
+        for (Employee employee : employees ){
+            if (employee.getEmployeeId() > id){
+                id = employee.getEmployeeId();
             }
         }
         id++;
