@@ -7,13 +7,14 @@ import view.*;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.Scanner;
 
 public class MainController {
     Model model;
     ObjectMapper mapper = new ObjectMapper();
 
-    public void execute() throws IOException {
+    public void execute() throws IOException, ParseException {
         // Read the model
         model = Model.readModel();
         try {

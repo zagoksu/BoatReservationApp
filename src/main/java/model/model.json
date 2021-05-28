@@ -1,1 +1,451 @@
-{"boats":[{"boatId":1,"boatType":"KAJAK","seats":2,"minimumPrice":23.0,"chargingTime":0},{"boatId":2,"boatType":"KAJAK","seats":2,"minimumPrice":23.0,"chargingTime":0},{"boatId":3,"boatType":"KAJAK","seats":2,"minimumPrice":23.0,"chargingTime":0},{"boatId":4,"boatType":"KAJAK","seats":2,"minimumPrice":23.0,"chargingTime":0},{"boatId":5,"boatType":"KAJAK","seats":2,"minimumPrice":23.0,"chargingTime":0},{"boatId":6,"boatType":"KAJAK","seats":2,"minimumPrice":23.0,"chargingTime":0},{"boatId":7,"boatType":"KAJAK","seats":2,"minimumPrice":23.0,"chargingTime":0},{"boatId":8,"boatType":"KAJAK","seats":2,"minimumPrice":23.0,"chargingTime":0},{"boatId":9,"boatType":"KAJAK","seats":2,"minimumPrice":23.0,"chargingTime":0},{"boatId":10,"boatType":"KAJAK","seats":2,"minimumPrice":23.0,"chargingTime":0},{"boatId":11,"boatType":"ROWINGBOAT","seats":4,"minimumPrice":27.5,"chargingTime":0},{"boatId":12,"boatType":"ROWINGBOAT","seats":4,"minimumPrice":27.5,"chargingTime":0},{"boatId":13,"boatType":"ROWINGBOAT","seats":4,"minimumPrice":27.5,"chargingTime":0},{"boatId":14,"boatType":"ROWINGBOAT","seats":4,"minimumPrice":27.5,"chargingTime":0},{"boatId":15,"boatType":"ROWINGBOAT","seats":4,"minimumPrice":27.5,"chargingTime":0},{"boatId":16,"boatType":"ROWINGBOAT","seats":4,"minimumPrice":27.5,"chargingTime":0},{"boatId":17,"boatType":"ROWINGBOAT","seats":4,"minimumPrice":27.5,"chargingTime":0},{"boatId":18,"boatType":"ROWINGBOAT","seats":4,"minimumPrice":27.5,"chargingTime":0},{"boatId":19,"boatType":"ROWINGBOAT","seats":4,"minimumPrice":27.5,"chargingTime":0},{"boatId":20,"boatType":"ROWINGBOAT","seats":4,"minimumPrice":27.5,"chargingTime":0},{"boatId":21,"boatType":"SUPBOARD","seats":1,"minimumPrice":17.5,"chargingTime":0},{"boatId":22,"boatType":"SUPBOARD","seats":1,"minimumPrice":17.5,"chargingTime":0},{"boatId":23,"boatType":"SUPBOARD","seats":1,"minimumPrice":17.5,"chargingTime":0},{"boatId":24,"boatType":"SUPBOARD","seats":1,"minimumPrice":17.5,"chargingTime":0},{"boatId":25,"boatType":"SUPBOARD","seats":1,"minimumPrice":17.5,"chargingTime":0},{"boatId":26,"boatType":"SUPBOARD","seats":1,"minimumPrice":17.5,"chargingTime":0},{"boatId":27,"boatType":"SUPBOARD","seats":1,"minimumPrice":17.5,"chargingTime":0},{"boatId":28,"boatType":"SUPBOARD","seats":1,"minimumPrice":17.5,"chargingTime":0},{"boatId":29,"boatType":"SUPBOARD","seats":1,"minimumPrice":17.5,"chargingTime":0},{"boatId":30,"boatType":"SUPBOARD","seats":1,"minimumPrice":17.5,"chargingTime":0},{"boatId":31,"boatType":"SUPBOARD","seats":1,"minimumPrice":17.5,"chargingTime":0},{"boatId":32,"boatType":"SUPBOARD","seats":1,"minimumPrice":17.5,"chargingTime":0},{"boatId":33,"boatType":"SUPBOARD","seats":1,"minimumPrice":17.5,"chargingTime":0},{"boatId":34,"boatType":"SUPBOARD","seats":1,"minimumPrice":17.5,"chargingTime":0},{"boatId":35,"boatType":"SUPBOARD","seats":1,"minimumPrice":17.5,"chargingTime":0},{"boatId":36,"boatType":"SUPBOARD","seats":1,"minimumPrice":17.5,"chargingTime":0},{"boatId":37,"boatType":"SUPBOARD","seats":1,"minimumPrice":17.5,"chargingTime":0},{"boatId":38,"boatType":"SUPBOARD","seats":1,"minimumPrice":17.5,"chargingTime":0},{"boatId":39,"boatType":"SUPBOARD","seats":1,"minimumPrice":17.5,"chargingTime":0},{"boatId":40,"boatType":"SUPBOARD","seats":1,"minimumPrice":17.5,"chargingTime":0},{"boatId":41,"boatType":"ELECTRICALBOAT","seats":4,"minimumPrice":35.0,"chargingTime":0},{"boatId":42,"boatType":"ELECTRICALBOAT","seats":4,"minimumPrice":35.0,"chargingTime":0},{"boatId":43,"boatType":"ELECTRICALBOAT","seats":4,"minimumPrice":35.0,"chargingTime":0},{"boatId":44,"boatType":"ELECTRICALBOAT","seats":4,"minimumPrice":35.0,"chargingTime":0},{"boatId":45,"boatType":"ELECTRICALBOAT","seats":4,"minimumPrice":35.0,"chargingTime":0},{"boatId":46,"boatType":"KAJAK","seats":2,"minimumPrice":10.0,"chargingTime":0},{"boatId":48,"boatType":"kajak","seats":2,"minimumPrice":80.0,"chargingTime":0},{"boatId":49,"boatType":"ELECTRICALBOAT","seats":4,"minimumPrice":37.0,"chargingTime":1},{"boatId":47,"boatType":"ROWINGBOAT","seats":4,"minimumPrice":44.0,"chargingTime":0},{"boatId":50,"boatType":"ELECTRICALBOAT","seats":4,"minimumPrice":44.0,"chargingTime":1},{"boatId":51,"boatType":"KAJAK","seats":2,"minimumPrice":65.0,"chargingTime":0}],"employees":[{"employeeId":2,"userName":"saif","password":"abc123"},{"employeeId":3,"userName":"esra","password":"123123"},{"employeeId":4,"userName":"zeynel","password":"123123"},{"employeeId":1,"userName":"ali","password":"123123"},{"employeeId":5,"userName":"yonas","password":"123123"}],"customers":[{"customerId":1,"name":"Smith","phoneNumber":6873434,"email":"smith@smith.com","address":"kazernalaanstraat 101"},{"customerId":2,"name":"ali gokay","phoneNumber":6423443,"email":"aligokay@gmail.com","address":"fatihstraat 109WW Amsterdam"},{"customerId":3,"name":"robert mason","phoneNumber":610202030,"email":"mason@com","address":"molveno hotel"},{"customerId":4,"name":"Bob Simon","phoneNumber":612304005,"email":"boby@go.com","address":"LA USA"},{"customerId":5,"name":"Brain","phoneNumber":6234050,"email":"braincom","address":"molveno"}],"rentals":[{"rentalId":1,"rentDate":1622844000000,"boat":{"boatId":51,"boatType":"KAJAK","seats":2,"minimumPrice":65.0,"chargingTime":0},"customer":{"customerId":1,"name":"Smith","phoneNumber":6873434,"email":"smith@smith.com","address":"kazernalaanstraat 101"},"startTime":"14:30","endTime":"15:30","rentDuration":2,"totalPrice":70.0,"paymentIsDone":true,"returned":false},{"rentalId":2,"rentDate":1626559200000,"boat":{"boatId":51,"boatType":"KAJAK","seats":2,"minimumPrice":65.0,"chargingTime":0},"customer":{"customerId":1,"name":"Smith","phoneNumber":6873434,"email":"smith@smith.com","address":"kazernalaanstraat 101"},"startTime":"15:00","endTime":"18:00","rentDuration":0,"totalPrice":0.0,"paymentIsDone":true,"returned":false},{"rentalId":3,"rentDate":1623708000000,"boat":{"boatId":51,"boatType":"KAJAK","seats":2,"minimumPrice":65.0,"chargingTime":0},"customer":{"customerId":1,"name":"Smith","phoneNumber":6873434,"email":"smith@smith.com","address":"kazernalaanstraat 101"},"startTime":"12:00","endTime":"16:00","rentDuration":0,"totalPrice":0.0,"paymentIsDone":true,"returned":false},{"rentalId":4,"rentDate":1623621600000,"boat":{"boatId":33,"boatType":"SUPBOARD","seats":1,"minimumPrice":17.5,"chargingTime":0},"customer":{"customerId":1,"name":"Smith","phoneNumber":6873434,"email":"smith@smith.com","address":"kazernalaanstraat 101"},"startTime":"12:00","endTime":"14:00","rentDuration":0,"totalPrice":0.0,"paymentIsDone":true,"returned":false}]}
+{
+  "boats": [
+    {
+      "boatId": 1,
+      "boatType": "KAJAK",
+      "seats": 2,
+      "minimumPrice": 23.0,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 2,
+      "boatType": "KAJAK",
+      "seats": 2,
+      "minimumPrice": 23.0,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 3,
+      "boatType": "KAJAK",
+      "seats": 2,
+      "minimumPrice": 23.0,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 4,
+      "boatType": "KAJAK",
+      "seats": 2,
+      "minimumPrice": 23.0,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 5,
+      "boatType": "KAJAK",
+      "seats": 2,
+      "minimumPrice": 23.0,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 6,
+      "boatType": "KAJAK",
+      "seats": 2,
+      "minimumPrice": 23.0,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 7,
+      "boatType": "KAJAK",
+      "seats": 2,
+      "minimumPrice": 23.0,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 8,
+      "boatType": "KAJAK",
+      "seats": 2,
+      "minimumPrice": 23.0,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 9,
+      "boatType": "KAJAK",
+      "seats": 2,
+      "minimumPrice": 23.0,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 10,
+      "boatType": "KAJAK",
+      "seats": 2,
+      "minimumPrice": 23.0,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 11,
+      "boatType": "ROWINGBOAT",
+      "seats": 4,
+      "minimumPrice": 27.5,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 12,
+      "boatType": "ROWINGBOAT",
+      "seats": 4,
+      "minimumPrice": 27.5,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 13,
+      "boatType": "ROWINGBOAT",
+      "seats": 4,
+      "minimumPrice": 27.5,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 14,
+      "boatType": "ROWINGBOAT",
+      "seats": 4,
+      "minimumPrice": 27.5,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 15,
+      "boatType": "ROWINGBOAT",
+      "seats": 4,
+      "minimumPrice": 27.5,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 16,
+      "boatType": "ROWINGBOAT",
+      "seats": 4,
+      "minimumPrice": 27.5,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 17,
+      "boatType": "ROWINGBOAT",
+      "seats": 4,
+      "minimumPrice": 27.5,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 18,
+      "boatType": "ROWINGBOAT",
+      "seats": 4,
+      "minimumPrice": 27.5,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 19,
+      "boatType": "ROWINGBOAT",
+      "seats": 4,
+      "minimumPrice": 27.5,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 20,
+      "boatType": "ROWINGBOAT",
+      "seats": 4,
+      "minimumPrice": 27.5,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 21,
+      "boatType": "SUPBOARD",
+      "seats": 1,
+      "minimumPrice": 17.5,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 22,
+      "boatType": "SUPBOARD",
+      "seats": 1,
+      "minimumPrice": 17.5,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 23,
+      "boatType": "SUPBOARD",
+      "seats": 1,
+      "minimumPrice": 17.5,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 24,
+      "boatType": "SUPBOARD",
+      "seats": 1,
+      "minimumPrice": 17.5,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 25,
+      "boatType": "SUPBOARD",
+      "seats": 1,
+      "minimumPrice": 17.5,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 26,
+      "boatType": "SUPBOARD",
+      "seats": 1,
+      "minimumPrice": 17.5,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 27,
+      "boatType": "SUPBOARD",
+      "seats": 1,
+      "minimumPrice": 17.5,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 28,
+      "boatType": "SUPBOARD",
+      "seats": 1,
+      "minimumPrice": 17.5,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 29,
+      "boatType": "SUPBOARD",
+      "seats": 1,
+      "minimumPrice": 17.5,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 30,
+      "boatType": "SUPBOARD",
+      "seats": 1,
+      "minimumPrice": 17.5,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 31,
+      "boatType": "SUPBOARD",
+      "seats": 1,
+      "minimumPrice": 17.5,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 32,
+      "boatType": "SUPBOARD",
+      "seats": 1,
+      "minimumPrice": 17.5,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 33,
+      "boatType": "SUPBOARD",
+      "seats": 1,
+      "minimumPrice": 17.5,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 34,
+      "boatType": "SUPBOARD",
+      "seats": 1,
+      "minimumPrice": 17.5,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 35,
+      "boatType": "SUPBOARD",
+      "seats": 1,
+      "minimumPrice": 17.5,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 36,
+      "boatType": "SUPBOARD",
+      "seats": 1,
+      "minimumPrice": 17.5,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 37,
+      "boatType": "SUPBOARD",
+      "seats": 1,
+      "minimumPrice": 17.5,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 38,
+      "boatType": "SUPBOARD",
+      "seats": 1,
+      "minimumPrice": 17.5,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 39,
+      "boatType": "SUPBOARD",
+      "seats": 1,
+      "minimumPrice": 17.5,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 40,
+      "boatType": "SUPBOARD",
+      "seats": 1,
+      "minimumPrice": 17.5,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 41,
+      "boatType": "ELECTRICALBOAT",
+      "seats": 4,
+      "minimumPrice": 35.0,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 42,
+      "boatType": "ELECTRICALBOAT",
+      "seats": 4,
+      "minimumPrice": 35.0,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 43,
+      "boatType": "ELECTRICALBOAT",
+      "seats": 4,
+      "minimumPrice": 35.0,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 44,
+      "boatType": "ELECTRICALBOAT",
+      "seats": 4,
+      "minimumPrice": 35.0,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 45,
+      "boatType": "ELECTRICALBOAT",
+      "seats": 4,
+      "minimumPrice": 35.0,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 46,
+      "boatType": "KAJAK",
+      "seats": 2,
+      "minimumPrice": 10.0,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 48,
+      "boatType": "kajak",
+      "seats": 2,
+      "minimumPrice": 80.0,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 49,
+      "boatType": "ELECTRICALBOAT",
+      "seats": 4,
+      "minimumPrice": 37.0,
+      "chargingTime": 1
+    },
+    {
+      "boatId": 47,
+      "boatType": "ROWINGBOAT",
+      "seats": 4,
+      "minimumPrice": 44.0,
+      "chargingTime": 0
+    },
+    {
+      "boatId": 50,
+      "boatType": "ELECTRICALBOAT",
+      "seats": 4,
+      "minimumPrice": 44.0,
+      "chargingTime": 1
+    },
+    {
+      "boatId": 51,
+      "boatType": "KAJAK",
+      "seats": 2,
+      "minimumPrice": 65.0,
+      "chargingTime": 0
+    }
+  ],
+  "employees": [
+    {
+      "employeeId": 2,
+      "userName": "saif",
+      "password": "abc123"
+    },
+    {
+      "employeeId": 3,
+      "userName": "esra",
+      "password": "123123"
+    },
+    {
+      "employeeId": 4,
+      "userName": "zeynel",
+      "password": "123123"
+    },
+    {
+      "employeeId": 1,
+      "userName": "ali",
+      "password": "123123"
+    },
+    {
+      "employeeId": 5,
+      "userName": "yonas",
+      "password": "123123"
+    }
+  ],
+  "customers": [
+    {
+      "customerId": 1,
+      "name": "Smith",
+      "phoneNumber": 6873434,
+      "email": "smith@smith.com",
+      "address": "kazernalaanstraat 101"
+    },
+    {
+      "customerId": 2,
+      "name": "ali gokay",
+      "phoneNumber": 6423443,
+      "email": "aligokay@gmail.com",
+      "address": "fatihstraat 109WW Amsterdam"
+    },
+    {
+      "customerId": 3,
+      "name": "robert mason",
+      "phoneNumber": 610202030,
+      "email": "mason@com",
+      "address": "molveno hotel"
+    },
+    {
+      "customerId": 4,
+      "name": "Bob Simon",
+      "phoneNumber": 612304005,
+      "email": "boby@go.com",
+      "address": "LA USA"
+    },
+    {
+      "customerId": 5,
+      "name": "Brain",
+      "phoneNumber": 6234050,
+      "email": "braincom",
+      "address": "molveno"
+    }
+  ],
+  "rentals": [
+    {
+      "rentalId": 1,
+      "rentDate": 1621029600000,
+      "boat": {
+        "boatId": 2,
+        "boatType": "KAJAK",
+        "seats": 2,
+        "minimumPrice": 23.0,
+        "chargingTime": 0
+      },
+      "customer": {
+        "customerId": 1,
+        "name": "Smith",
+        "phoneNumber": 6873434,
+        "email": "smith@smith.com",
+        "address": "kazernalaanstraat 101"
+      },
+      "startTime": "12:00",
+      "endTime": "14:30",
+      "rentDuration": 2.5,
+      "totalPrice": 57.5,
+      "paymentIsDone": true,
+      "returned": false
+    }
+  ]
+}

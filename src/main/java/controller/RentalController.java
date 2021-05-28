@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class RentalController {
@@ -17,7 +18,7 @@ public class RentalController {
     Scanner scanner = new Scanner(System.in);
     static Rental rental = new Rental();
 
-    public static void execute() {
+    public static void execute() throws ParseException {
         outer:
         while (true) {
             int choice = RentalMenuView.get();
@@ -85,7 +86,7 @@ public class RentalController {
         }
     }
 
-    public static void addRentals() {
+    public static void addRentals() throws ParseException {
         Scanner scanner = new Scanner(System.in);
         try {
             model = mapper.readValue(new File("src/main/java/model/model.json"), Model.class);
@@ -126,9 +127,18 @@ public class RentalController {
         System.out.println("Enter rental end time in the form 14:30");
         String enteredEndTime = scanner.nextLine();
         Rental rental = null;
+
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+        Date date1 = format.parse(enteredStartTime);
+        Date date2 = format.parse(enteredEndTime);
+        double difference =  date2.getTime() - date1.getTime();
+        double rentDuration = difference / 3_600_000;
+        System.out.println(difference);
+        System.out.println(rentDuration);
+
         try {
             rental = new Rental(model.nextRentalId(), objSDF.parse(enteredDate), boat, customer,
-                    enteredStartTime, enteredEndTime, true, false);
+                    enteredStartTime, enteredEndTime, rentDuration,true, false);
         } catch (ParseException e) {
             e.printStackTrace();
         }

@@ -9,12 +9,12 @@ public class Rental {
     private Customer customer;
     private String startTime;
     private String endTime;
-    private int rentDuration;
+    private double rentDuration;
     private double totalPrice;
     private boolean paymentIsDone;
     private boolean isReturned;
 
-    public Rental(int rentalId, Date rentDate, Boat boat, Customer customer, String startTime, String endTime,  boolean paymentIsDone, boolean isReturned) {
+    public Rental(int rentalId, Date rentDate, Boat boat, Customer customer, String startTime, String endTime, double rentDuration, boolean paymentIsDone, boolean isReturned) {
 
         this.rentalId = rentalId;
         this.rentDate = rentDate;
@@ -22,25 +22,11 @@ public class Rental {
         this.customer = customer;
         this.startTime = startTime;
         this.endTime = endTime;
-        this.rentDuration = 0;
+        this.rentDuration = rentDuration;
         this.totalPrice = calculateTotalPrice(boat.getMinimumPrice());
         this.paymentIsDone = paymentIsDone;
         this.isReturned = isReturned;
     }
-    public Rental(int rentalId, Date rentDate, Boat boat, Customer customer, String startTime, String endTime,  double totalPrice, boolean paymentIsDone, boolean isReturned) {
-
-        this.rentalId = rentalId;
-        this.rentDate = rentDate;
-        this.boat = boat;
-        this.customer = customer;
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.rentDuration = 0;
-        this.totalPrice = calculateTotalPrice(boat.getMinimumPrice());
-        this.paymentIsDone = paymentIsDone;
-        this.isReturned = isReturned;
-    }
-
 
     public Rental() {
 
@@ -95,11 +81,11 @@ public class Rental {
         this.endTime = endTime;
     }
 
-    public int getRentDuration() {
+    public double getRentDuration() {
         return rentDuration;
     }
 
-    public void setRentDuration(int rentDuration) {
+    public void setRentDuration(double rentDuration) {
         this.rentDuration = rentDuration;
     }
 
