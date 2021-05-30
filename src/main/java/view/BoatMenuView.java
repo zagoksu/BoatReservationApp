@@ -8,7 +8,7 @@ public class BoatMenuView {
         System.out.println("2. add a boat");
         System.out.println("3. change boat");
         System.out.println("4. delete boat");
-        System.out.println("5. main menu");
+        System.out.println("0. main menu");
 
         Scanner sc = new Scanner(System.in);
         while(true) {

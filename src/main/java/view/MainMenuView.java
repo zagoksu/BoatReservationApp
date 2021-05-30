@@ -8,13 +8,14 @@ public class MainMenuView {
         System.out.println("2. Customer Menu");
         System.out.println("3. Reservation Menu");
         System.out.println("4. User Menu");
-        System.out.println("5. End Program");
+        System.out.println("5. Revenue Menu");
+        System.out.println("0. End Program");
 
         Scanner sc = new Scanner(System.in);
         while(true) {
             int choice = sc.nextInt();
 
-            if (choice >= 1 || choice <= 5)
+            if (choice >= 1 || choice <= 6)
                 return choice;
         }
     }

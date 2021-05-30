@@ -60,6 +60,10 @@ public class MainController {
                     EmployeeController.execute();
                     break;
                 case 5:
+                    new RevenueMenuView();
+                    RevenueController.execute();
+                    break;
+                case 0:
                     break outer;
             }
 

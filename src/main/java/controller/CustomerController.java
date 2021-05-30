@@ -39,7 +39,7 @@ public class CustomerController {
                         e.printStackTrace();
                     }
                     break;
-                case 5:
+                case 0:
                     break outer;
             }
 

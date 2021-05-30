@@ -36,7 +36,7 @@ public class EmployeeController {
                 case 4:
                     deleteUser();
                     break;
-                case 5:
+                case 0:
                     break outer;
             }
 

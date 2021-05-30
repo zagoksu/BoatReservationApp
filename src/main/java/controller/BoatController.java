@@ -32,7 +32,7 @@ public class BoatController {
                 case 4:
                     deleteBoat();
                     break;
-                case 5:
+                case 0:
                     break outer;
             }
 

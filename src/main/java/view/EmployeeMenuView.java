@@ -8,7 +8,7 @@ public class EmployeeMenuView {
         System.out.println("2. add user");
         System.out.println("3. change user");
         System.out.println("4. delete user");
-        System.out.println("5. main menu");
+        System.out.println("0. main menu");
 
         Scanner sc = new Scanner(System.in);
         while(true) {

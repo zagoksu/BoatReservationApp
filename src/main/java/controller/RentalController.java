@@ -38,7 +38,7 @@ public class RentalController {
                 case 4:
                     deleteRentals();
                     break;
-                case 5:
+                case 0:
                     break outer;
             }
 
