@@ -67,15 +67,12 @@ public class RevenueController {
         double sum = 0;
         Date dateSelected = null;
         for (Rental rental : model.rentals){
-            if(rental.getRentDate() == objSDF.parse(keyInput_ReportDay)){ // why gives false?
+            if(rental.getRentDate().equals(objSDF.parse(keyInput_ReportDay))){
                 sum += rental.getTotalPrice();
                 dateSelected = rental.getRentDate();
-                System.out.println(dateSelected);
             }
         }
-        System.out.println(dateSelected);
-        System.out.println(objSDF.parse(keyInput_ReportDay));
-        System.out.println("Daily Revenue:");
+        System.out.println("Daily Revenue on " + dateSelected + " :");
         System.out.println(sum + " Euro");
 
 }
