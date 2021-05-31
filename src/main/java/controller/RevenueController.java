@@ -78,20 +78,6 @@ public class RevenueController {
 }
 }
 
-//        int count = 1;
-//        for (Rental rental : model.rentals){
-//            System.out.println(count + " " + rental.getRentDate());
-//            count++;
-//
-//        }
-//        System.out.println("Select date to show revenue");
-//        int keyInput_date = scanner.nextInt();
-//
-//        for(Rental rental : model.rentals){
-//            if (keyInput_date == count){
-//                System.out.println(rental.getTotalPrice());
-//            }
-//        }
 
 
 

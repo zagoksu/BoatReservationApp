@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class MainMenuView {
     public static int get() {
+        System.out.println();
+        System.out.println("SELECT AN OPTION");
         System.out.println("1. Boat Menu");
         System.out.println("2. Customer Menu");
         System.out.println("3. Reservation Menu");

@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class EmployeeMenuView {
     public static int get() {
+        System.out.println();
+        System.out.println("SELECT AN OPTION");
         System.out.println("1. show users");
         System.out.println("2. add user");
         System.out.println("3. change user");

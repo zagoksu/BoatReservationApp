@@ -70,13 +70,21 @@ public class RentalController {
     private static void changeRentals() {
         System.out.println("Please enter the id of the rental ");
         int rentalId = scanner.nextInt();
-        System.out.println("Please enter new price for the rental");
-        double totalPrice = scanner.nextDouble();
-        for (Rental rentalInn : model.rentals){
-            if(rental.getRentalId()==rentalId){
-                rental.setTotalPrice(totalPrice);
+        System.out.println("Please enter discount rate %:");
+        int discount = scanner.nextInt();
+        System.out.println("IS PAYMENT DONE? Y / N ?");
+        scanner.nextLine();
+        String keyInput_Payment = scanner.nextLine();
+        for (Rental rentalIn : model.rentals){
+            if(rentalIn.getRentalId()==rentalId){
+                rentalIn.setTotalPrice(rentalIn.getTotalPrice() - (rentalIn.getTotalPrice() * discount / 100));
+                System.out.println((rentalIn.getTotalPrice() * discount / 100) + " Euro discount is done.");
+                if (keyInput_Payment.equalsIgnoreCase("Y")){
+                    rentalIn.setPaymentIsDone(true);
+                } else {
+                    rentalIn.setPaymentIsDone(false);
+                }
                 System.out.println("The reservation with id: " + rentalId + " has been updated");
-                break;
             }
         }
         try {
@@ -183,6 +191,5 @@ public class RentalController {
                     + rental.getEndTime() + "\t\t" + rental.getBoat().getBoatId() + "\t\t\t" + rental.getBoat().getBoatType() + "\t\t\t" +
                     rental.getRentDuration() + "\t\t\t" + rental.getTotalPrice() + "\t\t" + rental.getCustomer().getName() + "\t\t\t" + payment);
         }
-        System.out.println("\n");
     }
 }

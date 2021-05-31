@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class RevenueMenuView {
     public static int get() {
+        System.out.println();
+        System.out.println("SELECT AN OPTION");
         System.out.println("1. SHOW DAILY REVENUE");
         System.out.println("2. SHOW TOTAL REVENUE");
         System.out.println("0. MAIN MENU");

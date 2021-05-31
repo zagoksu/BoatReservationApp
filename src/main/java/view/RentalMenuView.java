@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class RentalMenuView {
     public static int get() {
+        System.out.println();
+        System.out.println("SELECT AN OPTION");
         System.out.println("1. show reservations");
         System.out.println("2. add a new reservation");
         System.out.println("3. change a reservation");
