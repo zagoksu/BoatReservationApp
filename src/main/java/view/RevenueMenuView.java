@@ -12,7 +12,7 @@ public class RevenueMenuView {
         while(true) {
             int choice = sc.nextInt();
 
-            if (choice >= 1 || choice <= 3)
+            if (choice >= 0 || choice <= 2)
                 return choice;
         }
     }

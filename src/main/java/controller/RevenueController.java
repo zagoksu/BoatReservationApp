@@ -19,7 +19,7 @@ public class RevenueController {
     static Scanner scanner = new Scanner(System.in);
     static Model model = new Model();
 
-    public static void execute() throws IOException {
+    public static void execute() throws IOException, ParseException {
 
         outer:
         while (true) {
@@ -54,7 +54,7 @@ public class RevenueController {
 
     }
 
-    private static void showDailyRevenue() {
+    private static void showDailyRevenue() throws ParseException {
         try {
             model = mapper.readValue(new File("src\\main\\java\\model\\model.json"), Model.class);
         } catch (IOException e) {
@@ -65,17 +65,43 @@ public class RevenueController {
         System.out.println("Enter rental date in the form dd-MM-YYYY");
         String keyInput_ReportDay = scanner.nextLine();
         double sum = 0;
-        for (Rental rental : model.rentals) {
-            try {
-                if(rental.getRentDate() == objSDF.parse(keyInput_ReportDay)){
-                    sum += rental.getTotalPrice();
-                }
-            } catch (ParseException e) {
-                e.printStackTrace();
+        Date dateSelected = null;
+        for (Rental rental : model.rentals){
+            if(rental.getRentDate() == objSDF.parse(keyInput_ReportDay)){ // why gives false?
+                sum += rental.getTotalPrice();
+                dateSelected = rental.getRentDate();
+                System.out.println(dateSelected);
             }
         }
+        System.out.println(dateSelected);
+        System.out.println(objSDF.parse(keyInput_ReportDay));
         System.out.println("Daily Revenue:");
         System.out.println(sum + " Euro");
 
-    }
 }
+}
+
+//        int count = 1;
+//        for (Rental rental : model.rentals){
+//            System.out.println(count + " " + rental.getRentDate());
+//            count++;
+//
+//        }
+//        System.out.println("Select date to show revenue");
+//        int keyInput_date = scanner.nextInt();
+//
+//        for(Rental rental : model.rentals){
+//            if (keyInput_date == count){
+//                System.out.println(rental.getTotalPrice());
+//            }
+//        }
+
+
+
+
+
+
+
+
+
+

@@ -14,7 +14,7 @@ public class BoatMenuView {
         while(true) {
             int choice = sc.nextInt();
 
-            if (choice >= 1 || choice <= 5)
+            if (choice >= 0 || choice <= 4)
                 return choice;
         }
     }

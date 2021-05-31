@@ -15,7 +15,7 @@ public class MainMenuView {
         while(true) {
             int choice = sc.nextInt();
 
-            if (choice >= 1 || choice <= 6)
+            if (choice >= 0 || choice <= 5)
                 return choice;
         }
     }
