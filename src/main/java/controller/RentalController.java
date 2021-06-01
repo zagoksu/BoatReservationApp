@@ -1,5 +1,6 @@
 package controller;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import model.*;
 
@@ -8,15 +9,19 @@ import view.RentalMenuView;
 import java.io.File;
 import java.io.IOException;
 import java.text.*;
-import java.util.Date;
-import java.util.Locale;
-import java.util.Scanner;
+import java.time.LocalTime;
+import java.util.*;
+
+import static java.time.temporal.ChronoUnit.MINUTES;
 
 public class RentalController {
     static Model model = new Model();
     static ObjectMapper mapper = new ObjectMapper();
     static Scanner scanner = new Scanner(System.in);
     static Rental rental = new Rental();
+
+    // check for existing id
+    JsonNode rootNode = null;
 
     public static void execute() throws ParseException {
         outer:
@@ -93,6 +98,8 @@ public class RentalController {
     }
 
     public static void addRentals() throws ParseException {
+        List<Integer> bookedBoats = new ArrayList<>();
+
         try {
             model = mapper.readValue(new File("src/main/java/model/model.json"), Model.class);
         } catch (IOException e) {
@@ -111,27 +118,26 @@ public class RentalController {
         }
 
         scanner.nextLine();
-        String strDateFormat = "dd-MM-yyyy"; //Date format is Specified
-        SimpleDateFormat objSDF = new SimpleDateFormat(strDateFormat);
-        System.out.println("Enter rental date in the form dd-MM-YYYY");
-        String enteredDate = scanner.nextLine();
-        System.out.println("Enter rental start time in the form 14:30");
-        String enteredStartTime = scanner.nextLine();
-        System.out.println("Enter rental end time in the form 14:30");
-        String enteredEndTime = scanner.nextLine();
+//        String strDateFormat = "dd-MM-yyyy"; //Date format is Specified
+//        SimpleDateFormat objSDF = new SimpleDateFormat(strDateFormat);
+//        System.out.println("Enter rental date in the form dd-MM-YYYY");
+//        String enteredDate = scanner.nextLine();
+//        System.out.println("Enter rental start time in the form 14:30");
+//        String enteredStartTime = scanner.nextLine();
+//        System.out.println("Enter rental end time in the form 14:30");
+//        String enteredEndTime = scanner.nextLine();
         Rental rental = null;
 
         SimpleDateFormat format = new SimpleDateFormat("HH:mm");
-        Date date1 = format.parse(enteredStartTime);
-        Date date2 = format.parse(enteredEndTime);
-        double difference =  date2.getTime() - date1.getTime();
-        double rentDuration = difference / 3_600_000;
+//        Date date1 = format.parse(enteredStartTime);
+//        Date date2 = format.parse(enteredEndTime);
+//        double difference =  date2.getTime() - date1.getTime();
+//        double rentDuration = difference / 3_600_000;
 
+        showAvailableBoats();
+        System.out.println("Please select a boat to make a reservation");
         Boat boat = new Boat();
-        System.out.println("Please enter boat Id: ");
-        for (Boat boatIn : model.boats){
-            System.out.println(boatIn);
-        }
+
         int inputBoat = scanner.nextInt();
         for (Boat boatIn : model.boats){
             if(boatIn.getBoatId() == inputBoat){
@@ -172,6 +178,78 @@ public class RentalController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void showAvailableBoats() {
+        Scanner scanner = new Scanner(System.in);
+        ObjectMapper mapper = new ObjectMapper();
+        List<Integer> bookedBoats = new ArrayList<>();
+
+        // check for existing id
+        JsonNode rootNode = null;
+        try {
+            System.out.println("Enter rental date in the form dd-MM-YYYY");
+            String enteredDate = scanner.nextLine();
+
+            System.out.println("Enter rental start time in the form 14:30");
+            String enteredStartTime = scanner.nextLine();
+            LocalTime startTime2 = LocalTime.parse(enteredStartTime);
+            System.out.println("Enter rental end time in the form 14:30");
+            String enteredEndTime = scanner.nextLine();
+            LocalTime endTime2 = LocalTime.parse(enteredEndTime);
+//            double difference =  date2.getTime() - date1.getTime();
+//            double rentDuration = difference / 3_600_000;
+            System.out.println("time duration of = " + MINUTES.between(startTime2, endTime2));
+            rootNode = mapper.readTree(new File("src/main/java/model/model.json"));
+            String[] keys = {
+                    "boats", "employees", "customers", "rentals"
+            };
+            for (String key : keys) {
+                JsonNode value = rootNode.findValue(key);
+                if (key == "rentals") {
+//                        System.out.printf("Key %s exists? %s --> value=%s%n", key, value != null,
+//                                value == null ? null : value.fields());
+                    System.out.println("-----------------------------------------------------------------------------------");
+                    System.out.println("List of available boats");
+                    System.out.println("Boat Id\tBoat Type\t\t\tSeats\tMinimum price");
+                    System.out.println("-----------------------------------------------------------------------------------");
+
+                    for (Rental rental : model.rentals) {
+                        Locale locale = new Locale("nl", "NL");
+                        String strDateFormat = "dd-MM-yyyy"; //Date format is Specified
+                        SimpleDateFormat objSDF = new SimpleDateFormat(strDateFormat);
+                        LocalTime startTime1 = LocalTime.parse(rental.getStartTime());
+                        LocalTime endTime1 = LocalTime.parse(rental.getEndTime());
+                        boolean chkOverlap = isOverlapping(startTime1, endTime1, startTime2, endTime2);
+
+                        if (objSDF.parse(enteredDate).equals(rental.getRentDate())) {
+                            // add booked boats to a list for later use
+                            if (chkOverlap)
+                                bookedBoats.add(rental.getBoat().getBoatId());
+                        }
+                    }
+                }
+            }
+
+            if (model.boats.size() > 0) {
+                for (Boat boat : model.boats) {
+                    if (!bookedBoats.contains(boat.getBoatId()))
+                        System.out.println(boat.getBoatId() + "\t\t" + boat.getBoatType() + "\t\t\t\t" +
+                                boat.getSeats() + "\t\t" + boat.getMinimumPrice());
+                }
+            }
+
+
+        } catch (IOException | ParseException e) {
+            System.out.println("Please enter the correct information");
+//            e.printStackTrace();
+            return;
+        }
+        System.out.println("\n");
+    }
+
+    public static boolean isOverlapping(LocalTime startTime1, LocalTime endTime1, LocalTime startTime2, LocalTime endTime2) {
+        return !startTime1.isAfter(endTime2) && !startTime2.isAfter(endTime1);
     }
 
     private static void showRentals() {
