@@ -133,8 +133,9 @@ public class RentalController {
 //        Date date2 = format.parse(enteredEndTime);
 //        double difference =  date2.getTime() - date1.getTime();
 //        double rentDuration = difference / 3_600_000;
+        List<String> boatInfo = getBoatInfo();
+        showAvailableBoats(boatInfo.get(0),boatInfo.get(1),boatInfo.get(2));
 
-        showAvailableBoats();
         System.out.println("Please select a boat to make a reservation");
         Boat boat = new Boat();
 
@@ -156,8 +157,17 @@ public class RentalController {
             isPaymentDone = false;
         }
         try {
-            rental = new Rental(model.nextRentalId(), objSDF.parse(enteredDate), boat, customer,
-                    enteredStartTime, enteredEndTime, rentDuration,isPaymentDone);
+            String strDateFormat = "dd-MM-yyyy"; //Date format is Specified
+            SimpleDateFormat objSDF = new SimpleDateFormat(strDateFormat);
+//     public Rental(int rentalId, Date rentDate, Boat boat, Customer customer, String startTime,
+//     String endTime, double rentDuration, boolean paymentIsDone) {
+            LocalTime startTime2 = LocalTime.parse(boatInfo.get(1));
+            LocalTime endTime2 = LocalTime.parse(boatInfo.get(2));
+            double rentDuration =  endTime2.getHour() - startTime2.getHour();
+
+
+                rental = new Rental(model.nextRentalId(), objSDF.parse(boatInfo.get(0)), boat, customer,
+                    boatInfo.get(1), boatInfo.get(2), rentDuration,isPaymentDone);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -180,7 +190,24 @@ public class RentalController {
         }
     }
 
-    public static void showAvailableBoats() {
+    public static List<String> getBoatInfo(){
+        System.out.println("Enter rental date in the form dd-MM-YYYY");
+        String enteredDate = scanner.nextLine();
+
+        System.out.println("Enter rental start time in the form 14:30");
+        String enteredStartTime = scanner.nextLine();
+
+        System.out.println("Enter rental end time in the form 14:30");
+        String enteredEndTime = scanner.nextLine();
+        List<String> boatInfo = new ArrayList<>();
+        boatInfo.add(enteredDate);
+        boatInfo.add(enteredStartTime);
+        boatInfo.add(enteredEndTime);
+
+        return boatInfo;
+    }
+
+    public static void showAvailableBoats(String enteredDate,String enterStartTime, String enterEndTime) {
         Scanner scanner = new Scanner(System.in);
         ObjectMapper mapper = new ObjectMapper();
         List<Integer> bookedBoats = new ArrayList<>();
@@ -188,15 +215,10 @@ public class RentalController {
         // check for existing id
         JsonNode rootNode = null;
         try {
-            System.out.println("Enter rental date in the form dd-MM-YYYY");
-            String enteredDate = scanner.nextLine();
 
-            System.out.println("Enter rental start time in the form 14:30");
-            String enteredStartTime = scanner.nextLine();
-            LocalTime startTime2 = LocalTime.parse(enteredStartTime);
-            System.out.println("Enter rental end time in the form 14:30");
-            String enteredEndTime = scanner.nextLine();
-            LocalTime endTime2 = LocalTime.parse(enteredEndTime);
+
+            LocalTime startTime2 = LocalTime.parse(enterStartTime);
+            LocalTime endTime2 = LocalTime.parse(enterEndTime);
 //            double difference =  date2.getTime() - date1.getTime();
 //            double rentDuration = difference / 3_600_000;
             System.out.println("time duration of = " + MINUTES.between(startTime2, endTime2));

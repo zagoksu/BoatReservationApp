@@ -13,7 +13,8 @@ public class Rental {
     private double totalPrice;
     private boolean paymentIsDone;
 
-    public Rental(int rentalId, Date rentDate, Boat boat, Customer customer, String startTime, String endTime, double rentDuration, boolean paymentIsDone) {
+    public Rental(int rentalId, Date rentDate, Boat boat, Customer customer, String startTime, String endTime,
+                  double rentDuration, boolean paymentIsDone) {
 
         this.rentalId = rentalId;
         this.rentDate = rentDate;
