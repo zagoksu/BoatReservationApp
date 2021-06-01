@@ -7,11 +7,9 @@ import view.RentalMenuView;
 
 import java.io.File;
 import java.io.IOException;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.text.*;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class RentalController {
@@ -115,19 +113,7 @@ public class RentalController {
         scanner.nextLine();
         String strDateFormat = "dd-MM-yyyy"; //Date format is Specified
         SimpleDateFormat objSDF = new SimpleDateFormat(strDateFormat);
-        Boat boat = new Boat();
-        System.out.println("Please enter boat Id: ");
-        for (Boat boatIn : model.boats){
-            System.out.println(boatIn);
-        }
-        int inputBoat = scanner.nextInt();
-        for (Boat boatIn : model.boats){
-            if(boatIn.getBoatId() == inputBoat){
-                boat = boatIn;
-            }
-        }
         System.out.println("Enter rental date in the form dd-MM-YYYY");
-        scanner.nextLine();
         String enteredDate = scanner.nextLine();
         System.out.println("Enter rental start time in the form 14:30");
         String enteredStartTime = scanner.nextLine();
@@ -140,6 +126,21 @@ public class RentalController {
         Date date2 = format.parse(enteredEndTime);
         double difference =  date2.getTime() - date1.getTime();
         double rentDuration = difference / 3_600_000;
+
+        Boat boat = new Boat();
+        System.out.println("Please enter boat Id: ");
+        for (Boat boatIn : model.boats){
+            System.out.println(boatIn);
+        }
+        int inputBoat = scanner.nextInt();
+        for (Boat boatIn : model.boats){
+            if(boatIn.getBoatId() == inputBoat){
+                boat = boatIn;
+            }
+        }
+
+
+        scanner.nextLine();
         System.out.println("Is payment received? Y OR N ?");
         String payment = scanner.nextLine();
         boolean isPaymentDone = false;
@@ -179,7 +180,7 @@ public class RentalController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("No\tDate\t \t\t\t\t\t\tStart Time\tEnd Time\tBoat Id\tBoat Type \t\t Duration \t Total Price\tCustomer Name\t Payment");
+        System.out.println("No\tDate\t \t Start Time\tEnd Time\tBoat Id\tBoat Type \t\t Duration \t Total Price\tCustomer Name\t Payment");
         for (Rental rental : model.rentals){
             String payment = "";
             if (rental.isPaymentIsDone()){
@@ -187,7 +188,11 @@ public class RentalController {
             } else{
                 payment = "NOT DONE";
             }
-            System.out.println(rental.getRentalId() + "\t" + rental.getRentDate() + "\t" + rental.getStartTime() + "\t\t"
+            Locale locale = new Locale("nl", "NL");
+            DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.DEFAULT, locale);
+            String rentDate = dateFormat.format(rental.getRentDate());
+
+            System.out.println(rental.getRentalId() + "\t" + rentDate + "\t\t" + rental.getStartTime() + "\t\t"
                     + rental.getEndTime() + "\t\t" + rental.getBoat().getBoatId() + "\t\t\t" + rental.getBoat().getBoatType() + "\t\t\t" +
                     rental.getRentDuration() + "\t\t\t" + rental.getTotalPrice() + "\t\t" + rental.getCustomer().getName() + "\t\t\t" + payment);
         }

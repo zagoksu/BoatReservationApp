@@ -9,6 +9,7 @@ import view.RevenueMenuView;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -72,7 +73,8 @@ public class RevenueController {
                 dateSelected = rental.getRentDate();
             }
         }
-        System.out.println("Daily Revenue on " + dateSelected + " :");
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        System.out.println("Daily Revenue on " + dateFormat.format(dateSelected)+ " :");
         System.out.println(sum + " Euro");
 
 }
