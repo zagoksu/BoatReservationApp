@@ -23,7 +23,9 @@ public class MainController {
 
             Scanner scanner = new Scanner(System.in);
             boolean isAuthenticated = false;
-            System.out.println("Welcome to Boat Reservation Application");
+            System.out.println("---------------------------------------------------");
+            System.out.println(" WELCOME TO MOLVENO RESORT BOAT RESERVATION SYSTEM");
+            System.out.println("---------------------------------------------------");
             while (!isAuthenticated) {
                 System.out.print("Please Enter your username: ");
                 String userName = scanner.nextLine();

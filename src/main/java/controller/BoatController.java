@@ -46,10 +46,13 @@ public class BoatController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("BOAT ID \t BOAT TYPE \t SEATS \t\t PRICE PER HOUR \t CHARGING TIME");
+        System.out.println("--------------------------------------------------------------------------");
+        System.out.println(String.format("%-10s", "BOAT ID") + String.format("%-20s", "BOAT TYPE") + String.format("%-10s", "SEATS") + String.format("%-20s", "PRICE PER HOUR") + String.format("%-10s", "CHARGING TIME"));
+        System.out.println("--------------------------------------------------------------------------");
         for (Boat boatIn : model.boats) {
 //            System.out.println(boatIn);
-            System.out.println(boatIn.getBoatId() + "\t\t\t TYPE:" + boatIn.getBoatType() + "\t\t SEATS: " + boatIn.getSeats() + "\t PRICE:" + boatIn.getMinimumPrice() + "\t\t CHARGING TIME:" + boatIn.getChargingTime());
+            System.out.println(String.format("%-10s", boatIn.getBoatId()) + String.format("%-20s", boatIn.getBoatType())
+                    + String.format("%-10s", boatIn.getSeats()) + String.format("%-20s", boatIn.getMinimumPrice()) + String.format("%-10s", boatIn.getChargingTime()));
         }
     }
 

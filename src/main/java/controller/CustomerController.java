@@ -50,8 +50,13 @@ public class CustomerController {
     private static void listCustomers() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         model = mapper.readValue(new File("C:\\Users\\zgoksu\\IdeaProjects\\BoatReservationApp\\src\\main\\java\\model\\model.json"), Model.class);
+//        String padded = String.format("%-20s", str);
+        System.out.println("--------------------------------------------------------------------------------------------------------------");
+        System.out.println(String.format("%-5s", "ID")+ String.format("%-20s", "NAME") + String.format("%-20s", "PHONE NUMBER") + String.format("%-20s", "E-MAIL") + String.format("%-20s", "ADDRESS"));
+        System.out.println("--------------------------------------------------------------------------------------------------------------");
         for (Customer customerIn : model.customers) {
-            System.out.println(customerIn);
+            System.out.println(customerIn.getCustomerId() + "\t" + String.format("%-20s", customerIn.getName()) + " \t" +
+                    String.format("%-10s", customerIn.getPhoneNumber()) + " \t" + String.format("%-20s", customerIn.getEmail()) + "\t" + String.format("%-20s", customerIn.getAddress()));
         }
     }
 

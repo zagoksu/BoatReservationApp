@@ -106,8 +106,13 @@ public class RentalController {
             e.printStackTrace();
         }
         System.out.println("Please select customer:");
+        System.out.println("--------------------------------------------------------------------------------------------------------------");
+        System.out.println(String.format("%-5s", "ID")+ String.format("%-20s", "NAME") + String.format("%-20s", "PHONE NUMBER") + String.format("%-20s", "E-MAIL") + String.format("%-20s", "ADDRESS"));
+        System.out.println("--------------------------------------------------------------------------------------------------------------");
         for (Customer customerIn : model.customers){
-            System.out.println(customerIn);
+            System.out.println(customerIn.getCustomerId() + "\t" + String.format("%-20s", customerIn.getName()) + " \t" +
+                    String.format("%-10s", customerIn.getPhoneNumber()) + " \t" + String.format("%-20s", customerIn.getEmail())
+                    + "\t" + String.format("%-20s", customerIn.getAddress()));
         }
         int input = scanner.nextInt();
         Customer customer = new Customer();
@@ -118,21 +123,11 @@ public class RentalController {
         }
 
         scanner.nextLine();
-//        String strDateFormat = "dd-MM-yyyy"; //Date format is Specified
-//        SimpleDateFormat objSDF = new SimpleDateFormat(strDateFormat);
-//        System.out.println("Enter rental date in the form dd-MM-YYYY");
-//        String enteredDate = scanner.nextLine();
-//        System.out.println("Enter rental start time in the form 14:30");
-//        String enteredStartTime = scanner.nextLine();
-//        System.out.println("Enter rental end time in the form 14:30");
-//        String enteredEndTime = scanner.nextLine();
+
         Rental rental = null;
 
         SimpleDateFormat format = new SimpleDateFormat("HH:mm");
-//        Date date1 = format.parse(enteredStartTime);
-//        Date date2 = format.parse(enteredEndTime);
-//        double difference =  date2.getTime() - date1.getTime();
-//        double rentDuration = difference / 3_600_000;
+
         List<String> boatInfo = getBoatInfo();
         showAvailableBoats(boatInfo.get(0),boatInfo.get(1),boatInfo.get(2));
 
@@ -147,7 +142,11 @@ public class RentalController {
         }
 
 
-        scanner.nextLine();
+        String selectedBoat = scanner.nextLine();
+
+        if (bookedBoats.contains(selectedBoat))
+            System.out.println("Please select a boat from the available list");
+
         System.out.println("Is payment received? Y OR N ?");
         String payment = scanner.nextLine();
         boolean isPaymentDone = false;
@@ -159,14 +158,14 @@ public class RentalController {
         try {
             String strDateFormat = "dd-MM-yyyy"; //Date format is Specified
             SimpleDateFormat objSDF = new SimpleDateFormat(strDateFormat);
-//     public Rental(int rentalId, Date rentDate, Boat boat, Customer customer, String startTime,
-//     String endTime, double rentDuration, boolean paymentIsDone) {
+
             LocalTime startTime2 = LocalTime.parse(boatInfo.get(1));
             LocalTime endTime2 = LocalTime.parse(boatInfo.get(2));
-            double rentDuration =  endTime2.getHour() - startTime2.getHour();
+            double durationInMinutes = MINUTES.between(startTime2, endTime2);
+            double rentDuration = durationInMinutes / 60;
 
 
-                rental = new Rental(model.nextRentalId(), objSDF.parse(boatInfo.get(0)), boat, customer,
+            rental = new Rental(model.nextRentalId(), objSDF.parse(boatInfo.get(0)), boat, customer,
                     boatInfo.get(1), boatInfo.get(2), rentDuration,isPaymentDone);
         } catch (ParseException e) {
             e.printStackTrace();
@@ -219,8 +218,7 @@ public class RentalController {
 
             LocalTime startTime2 = LocalTime.parse(enterStartTime);
             LocalTime endTime2 = LocalTime.parse(enterEndTime);
-//            double difference =  date2.getTime() - date1.getTime();
-//            double rentDuration = difference / 3_600_000;
+
             System.out.println("time duration of = " + MINUTES.between(startTime2, endTime2));
             rootNode = mapper.readTree(new File("src/main/java/model/model.json"));
             String[] keys = {
@@ -229,8 +227,7 @@ public class RentalController {
             for (String key : keys) {
                 JsonNode value = rootNode.findValue(key);
                 if (key == "rentals") {
-//                        System.out.printf("Key %s exists? %s --> value=%s%n", key, value != null,
-//                                value == null ? null : value.fields());
+
                     System.out.println("-----------------------------------------------------------------------------------");
                     System.out.println("List of available boats");
                     System.out.println("Boat Id\tBoat Type\t\t\tSeats\tMinimum price");
@@ -280,7 +277,11 @@ public class RentalController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("No\tDate\t \t Start Time\tEnd Time\tBoat Id\tBoat Type \t\t Duration \t Total Price\tCustomer Name\t Payment");
+        System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println(String.format("%-5s", "ID") + String.format("%-15s", "DATE") + String.format("%-15s", "START TIME")
+                + String.format("%-15s", "END TIME") + String.format("%-10s", "BOAT ID") + String.format("%-20s", "BOAT TYPE")
+                + String.format("%-15s", "DURATION")  + String.format("%-15s", "TOTAL PRICE") + String.format("%-20s", "CUSTOMER NAME") + String.format("%-20s", "PAYMENT"));
+        System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------");
         for (Rental rental : model.rentals){
             String payment = "";
             if (rental.isPaymentIsDone()){
@@ -292,9 +293,10 @@ public class RentalController {
             DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.DEFAULT, locale);
             String rentDate = dateFormat.format(rental.getRentDate());
 
-            System.out.println(rental.getRentalId() + "\t" + rentDate + "\t\t" + rental.getStartTime() + "\t\t"
-                    + rental.getEndTime() + "\t\t" + rental.getBoat().getBoatId() + "\t\t\t" + rental.getBoat().getBoatType() + "\t\t\t" +
-                    rental.getRentDuration() + "\t\t\t" + rental.getTotalPrice() + "\t\t" + rental.getCustomer().getName() + "\t\t\t" + payment);
-        }
+            System.out.println(String.format("%-5s", rental.getRentalId()) + String.format("%-15s", rentDate)
+                    + String.format("%-15s", rental.getStartTime()) + String.format("%-15s", rental.getEndTime()) +
+                    String.format("%-10s", rental.getBoat().getBoatId())+
+                    String.format("%-20s", rental.getBoat().getBoatType()) + String.format("%-15s", rental.getRentDuration())
+                            + String.format("%-15s", rental.getTotalPrice()) + String.format("%-20s", rental.getCustomer().getName()) + payment);
     }
-}
+}}
