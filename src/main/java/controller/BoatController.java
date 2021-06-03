@@ -46,9 +46,9 @@ public class BoatController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("--------------------------------------------------------------------------");
-        System.out.println(String.format("%-10s", "BOAT ID") + String.format("%-20s", "BOAT TYPE") + String.format("%-10s", "SEATS") + String.format("%-20s", "PRICE PER HOUR") + String.format("%-10s", "CHARGING TIME"));
-        System.out.println("--------------------------------------------------------------------------");
+        System.out.println("-------------------------------------------------------------------------------");
+        System.out.println(String.format("%-10s", "BOAT ID") + String.format("%-20s", "BOAT TYPE") + String.format("%-10s", "SEATS") + String.format("%-20s", "PRICE PER HOUR") + String.format("%-10s", "CHARGING TIME (MIN)"));
+        System.out.println("-------------------------------------------------------------------------------");
         for (Boat boatIn : model.boats) {
 //            System.out.println(boatIn);
             System.out.println(String.format("%-10s", boatIn.getBoatId()) + String.format("%-20s", boatIn.getBoatType())
@@ -68,7 +68,7 @@ public class BoatController {
         if(keyInput_boatType == 1){
             boatType = "ELECTRICALBOAT";
             boatSeats = 4;
-            chargingTime = 1;
+            chargingTime = 30;
 
         } else if(keyInput_boatType== 2){
             boatType = "KAJAK";

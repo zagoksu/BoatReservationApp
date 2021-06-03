@@ -19,7 +19,7 @@ public class RentalController {
     static ObjectMapper mapper = new ObjectMapper();
     static Scanner scanner = new Scanner(System.in);
     static Rental rental = new Rental();
-
+//    static List<Integer> bookedBoats = new ArrayList<>();
     // check for existing id
     JsonNode rootNode = null;
 
@@ -144,8 +144,17 @@ public class RentalController {
 
         String selectedBoat = scanner.nextLine();
 
-        if (bookedBoats.contains(selectedBoat))
+        while (bookedBoats.contains(selectedBoat)) {
             System.out.println("Please select a boat from the available list");
+            selectedBoat = scanner.nextLine();
+        }
+
+//        for (int bookedBoat : bookedBoats){
+//            if(bookedBoat == selectedBoat){
+//                System.out.println("Please select a boat from the available list");
+//            selectedBoat = scanner.nextInt();
+//            }
+//        }
 
         System.out.println("Is payment received? Y OR N ?");
         String payment = scanner.nextLine();
@@ -210,7 +219,6 @@ public class RentalController {
         Scanner scanner = new Scanner(System.in);
         ObjectMapper mapper = new ObjectMapper();
         List<Integer> bookedBoats = new ArrayList<>();
-
         // check for existing id
         JsonNode rootNode = null;
         try {
